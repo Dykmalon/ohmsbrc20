@@ -319,7 +319,7 @@ a {
 
   html,
   body {
-  overflow: hidden;
+    overflow: hidden;
   }
 
   .layout {
@@ -332,13 +332,22 @@ a {
     width: 100%;
     height: 63%;
     background-size: cover;
-  
+
+  }
+
+  .ads{
+    width: 84%;
+    height: 78%;
   }
 
   .ads-game {
 
     width: 100%;
-    height: 23%;
-    bottom: 18%;
-}
+    height: 29%;
+    bottom: 10%;
+  }
+
+  .base {
+    overflow: hidden;
+  }
 }
