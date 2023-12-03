@@ -1,6 +1,6 @@
 // lib/firebaseFunctions.js
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import {  db } from './firebase';
+import {  auth,db } from './firebase';
 
 export const addPoints = async (userId, points) => {
   const userRef = doc(db, 'users', userId);
