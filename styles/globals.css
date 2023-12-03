@@ -102,6 +102,11 @@ a {
 
 }
 
+
+.selection-buttons button:hover {
+  box-shadow: 0 0 100px #ffffff, 0 0 20px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff;
+}
+
 .layout {
   background: url('/interface.svg') no-repeat center center;
   background-size: contain;
@@ -152,6 +157,10 @@ a {
   text-transform: uppercase;
   margin-top: 20px;
   font-family: "Technor-Bold";
+}
+
+.layout button:hover {
+  box-shadow: 0 0 100px #ffffff, 0 0 20px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff;
 }
 
 .login-a {
