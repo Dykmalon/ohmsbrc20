@@ -37,26 +37,40 @@ const Game = ({ onRedeem, userId }) => {
 
   return (
     <div>
-      {/* <h2>Press the Button!</h2> */}
-      <p className="points">{points}</p>
+      <div className="bot-logout" >
+        <Logout />
+      </div>
+      <div className="intro">
+      <h2>Press It and Earn Points</h2>
+      <p>Daily point limit is 100000</p>
+      </div>
+
       {dailyPointsExceeded ? (
         <div className="redeem">
-        <p className="daily">Daily points exceeded!</p>
-        <button>Redeem</button>
+          <p className="daily">Daily points exceeded!</p>
+          <button>Redeem</button>
         </div>
       ) : (
         <>
           <div className="game-btn">
-            <button onClick={handlePress}>Press</button>
+            <div>
+              <button onClick={handlePress}></button>
+            </div>
           </div>
+
           {points >= maxDailyPoints && <button onClick={onRedeem}>Redeem</button>}
-          <div className="ads-game">
-            <Ads />
-          </div>
-          <div className="bot-logout" >
-              <Logout/>
-          </div>
+
+          <Ads />
+          {/* <div className="ads-game">
+           
+          </div> */}
+          {/* <div className="line-grp">
+            <div className="line"></div>
+            <div className="line"></div>
+            <div className="line"></div>
         
+          </div> */}
+          <p className="points">{points}</p>
         </>
       )}
     </div>

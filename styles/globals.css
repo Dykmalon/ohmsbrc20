@@ -84,11 +84,11 @@ a {
 }
 
 .selection-buttons button {
-  border: solid 5px white;
+  border: solid 5px rgb(0, 0, 0);
   border-radius: 10px;
   padding: 6px;
-  background-color: white;
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-family: "Technor-Bold";
   font-weight: bold;
   font-size: 1em;
@@ -97,8 +97,8 @@ a {
   margin-top: 20px;
   width: 15vh;
   display: flex;
-
   justify-content: center;
+  z-index: 8;
 
 }
 
@@ -107,22 +107,39 @@ a {
   box-shadow: 0 0 100px #ffffff, 0 0 20px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff;
 }
 
+@keyframes shadowAnimation {
+  0% {
+    box-shadow: 0 0 0px #ffffff, 0 0 0px #ffffff, 0 0 0px #ffffff, 0 0 0px #ffffff;
+    opacity: 0;
+  }
+
+  50% {
+    box-shadow: 0 0 209px #ffffff, 0 0 20px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff;
+    opacity: 1;
+  }
+
+  100% {
+    box-shadow: 0 0 0px #ffffff, 0 0 0px #ffffff, 0 0 0px #ffffff, 0 0 0px #ffffff;
+    opacity: 0;
+  }
+}
+
 .layout {
-  background: url('/interface.svg') no-repeat center center;
   background-size: contain;
   height: 50vh;
-  width: 90vh;
+  width: 70vh;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  /* box-shadow: 20px 0px 20px -24px #ffffff, -20px 0px 20px -24px #ffffff */
 }
 
+/* animation: shadowAnimation 4s ease-in-out infinite; */
 .layout h2 {
   font-family: "Technor-Bold";
-  color: white;
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
   font-size: 4vh;
 }
@@ -146,17 +163,18 @@ a {
 }
 
 .layout button {
-  border: solid 5px white;
+  border: solid 5px rgb(255, 255, 255);
   border-radius: 10px;
   padding: 6px;
-  background-color: white;
-  color: black;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-weight: bold;
   font-size: 1em;
   cursor: pointer;
   text-transform: uppercase;
   margin-top: 20px;
   font-family: "Technor-Bold";
+  z-index: 5;
 }
 
 .layout button:hover {
@@ -179,32 +197,91 @@ a {
 }
 
 .game-btn {
-  width: 58vh;
-  height: 63vh;
-  background: url(/game-btn.svg) no-repeat center center;
+  /* width: 58vh;  */
+  /* height: 63vh; */
+  /* background: url(/game-btn.svg) no-repeat center center; */
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 27;
+  /* position: absolute; */
+  /* top: 30%; 
+   left: 50%; 
+  transform: translate(-50%, -50%); */
+}
+
+.game-btn button {
+  /*position: absolute; */
+  /* top: 31%; */
+  width: 12em;
+  height: 12em;
+  text-transform: uppercase;
+  /* font-size: 3.3vh; */
+  font-family: "Technor-Bold";
+  border-radius: 50%;
+  background: black;
+  border: none;
+  color: white;
+  background: url(/logo.webp) no-repeat center center, #000000;
+  background-size: 9em;
+  filter: invert(1);
+  box-shadow: 0 0 100px #000000, 0 0 20px #000000, 0 0 2px #000000, 0 0 2px #000000;
+
+
+
+}
+
+.game-btn button:hover {
+  box-shadow: 0 0 269px #000000, 0 0 52px #000000, 0 0 2px #000000, 0 0 2px #000000;
+}
+
+
+.progress-bar {
+  background-color: #ddd;
+  height: 20px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.progress {
+  background-color: #4caf50;
+  /* Green color for the progress */
+  height: 100%;
+  width: 0;
+  /* Initially set to 0, it will be updated dynamically */
+}
+
+/* .game-btn div{
+
+  padding: 3em;
+  border: solid 5px black;
+  border-radius: 50%;
+
+} */
+
+.line {
+  width: 6em;
+  height: 24em;
+  background-color: #fff;
+  box-shadow: 0 0 20px 6px rgba(255, 255, 255, .35);
+  -webkit-box-reflect: below -260px linear-gradient(transparent, #0005);
+  box-shadow: 0 0 100px #ffffff, 0 0 20px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff;
+}
+
+.line-grp {
+  grid-column-gap: 4em;
+  grid-row-gap: 5em;
+  display: flex;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.game-btn button {
-  position: absolute;
-  top: 31%;
-  width: 14vh;
-  height: 14vh;
-  text-transform: uppercase;
-  font-size: 3.3vh;
-  font-family: "Technor-Bold";
-}
 
-.game-btn button:hover {
-  box-shadow: 0 0 100px #ffffff, 0 0 20px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff;
-}
+
 
 .ads-game {
   /* background: white; */
@@ -225,36 +302,86 @@ a {
   bottom: -8%;
 }
 
+.intro {
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 11%;
+  text-transform: uppercase;
+  font-family: "Technor-Bold";
+  text-shadow: 0 0 100px #ffffff, 0 0 20px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff;
+}
+.ad-content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ad-content button{
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  border: solid 5px rgb(0, 0, 0);
+    border-radius: 10px;
+    /* padding: 6px; */
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 2vh;
+    cursor: pointer;
+    text-transform: uppercase;
+    /* margin-top: 19px; */
+    font-family: "Technor-Bold";
+}
+
 .ads {
-  width: 74%;
-  height: 82%;
+  width: 70%;
+  height: 60%;;
   background: white;
   background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
   /* top: 31%; */
   /* left: 50%; */
   /* transform: translate(-50%, -50%); */
   /* bottom: 1%;*/
+  display: none;
+}
+
+.ads.open {
+  display: block; /* Display when open */
+}
+
+.ads.closed {
+  display: none; /* Hide when closed */
 }
 
 .points {
   position: absolute;
-  top: 11%;
+  /* top: 3%; */
   /* bottom: 0; */
   left: 0;
   width: 100%;
   /* height: 26vh; */
   /* background: url(/points.svg) no-repeat center center; */
-  background-size: contain;
+  /* background-size: contain; */
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 2vh;
-  text-transform: uppercase;
+  font-size: 7vh;
+  /* text-transform: uppercase; */
   font-family: "Technor-Bold";
 }
 
@@ -267,23 +394,23 @@ a {
 
 .bot-logout {
   position: absolute;
-  bottom: 3%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 2%;
+  right: 2%;
+  /* transform: translate(-50%, -50%);*/
 
 }
 
 .bot-logout button {
   border: solid 5px white;
   border-radius: 10px;
-  padding: 6px;
+  /* padding: 6px; */
   background-color: white;
   color: black;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 2vh;
   cursor: pointer;
   text-transform: uppercase;
-  margin-top: 20px;
+  /* margin-top: 19px; */
   font-family: "Technor-Bold";
 }
 
@@ -335,7 +462,7 @@ a {
 
   }
 
-  .ads{
+  .ads {
     width: 84%;
     height: 78%;
   }
