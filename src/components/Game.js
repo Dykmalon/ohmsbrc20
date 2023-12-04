@@ -10,6 +10,7 @@ const Game = ({ onRedeem, userId }) => {
   const pointsPerPress = 0.25;
   const [dailyPointsExceeded, setDailyPointsExceeded] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [showFlash, setShowFlash] = useState(false);
 
   useEffect(() => {
     const fetchPoints = async () => {
@@ -33,13 +34,18 @@ const Game = ({ onRedeem, userId }) => {
       // Use the updated value of newPoints in addPoints
       await addPoints(userId, pointsPerPress);
       setIsUpdating(false);
+
+      if (newPoints % 1 === 0) {
+        setShowFlash(true);
+        setTimeout(() => setShowFlash(false), 100); // Remove flash after 1 second
+      }
     } else {
       setDailyPointsExceeded(true);
     }
   };
 
   return (
-    <div>
+    <div className={`mask ${showFlash ? 'flash' : ''}`}>
       <div className="bot-logout" >
         <Logout />
       </div>
