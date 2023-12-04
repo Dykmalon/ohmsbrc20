@@ -9,6 +9,7 @@ const Game = ({ onRedeem, userId }) => {
   const maxDailyPoints = 10000;
   const pointsPerPress = 0.25;
   const [dailyPointsExceeded, setDailyPointsExceeded] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
     const fetchPoints = async () => {
@@ -20,7 +21,8 @@ const Game = ({ onRedeem, userId }) => {
   }, [userId]);
 
   const handlePress = async () => {
-    if (points < maxDailyPoints) {
+    if (points < maxDailyPoints && !isUpdating) {
+      setIsUpdating(true);
       const newPoints = points + pointsPerPress;
       setPoints(newPoints);
 
@@ -30,6 +32,7 @@ const Game = ({ onRedeem, userId }) => {
 
       // Use the updated value of newPoints in addPoints
       await addPoints(userId, pointsPerPress);
+      setIsUpdating(false);
     } else {
       setDailyPointsExceeded(true);
     }
@@ -54,7 +57,7 @@ const Game = ({ onRedeem, userId }) => {
         <>
           <div className="game-btn">
             <div>
-              <button onClick={handlePress}></button>
+              <button onClick={handlePress} disabled={isUpdating}></button>
             </div>
           </div>
 

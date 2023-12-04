@@ -6,6 +6,7 @@ import { auth } from "../lib/firebase";
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const handleLogin = async () => {
     try {
@@ -17,6 +18,7 @@ const Login = ({ onLogin }) => {
       onLogin();
     } catch (error) {
       console.error("Error logging in:", error.message);
+      setError("Email or password is Incorrect");
     }
   };
 
@@ -24,12 +26,13 @@ const Login = ({ onLogin }) => {
     <div className="layout">
       <h2>Login</h2>
       <div className="inputbox">
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       <button onClick={handleLogin}>Login</button>
+      {error && <p className="error-msg">{error}</p>}
       <div className="login-a">
-      <p>Already have an account?</p>
+        <p>Already have an account?</p>
       </div>
     </div>
   );
