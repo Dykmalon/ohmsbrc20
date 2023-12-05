@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { addPoints, getPoints } from "../lib/firebaseFunctions";
 import Logout from "./Logout";
 import Ads from "./Ads";
+import Coin from "./Coin";
 
 const Game = ({ onRedeem, userId }) => {
   const [points, setPoints] = useState(0);
@@ -63,7 +64,8 @@ const Game = ({ onRedeem, userId }) => {
         <>
           <div className="game-btn">
             <div>
-              <button onClick={handlePress} disabled={isUpdating}></button>
+             
+              <button onClick={handlePress} disabled={isUpdating}> <Coin /></button>
             </div>
           </div>
 
