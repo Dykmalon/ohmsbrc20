@@ -39,7 +39,7 @@ const Game = ({ onRedeem, userId }) => {
       setIsUpdating(false);
 
       if (newPoints % 1 === 0) {
-        setShowFlash(true);
+        setShowFlash(false);
         setTimeout(() => setShowFlash(false), 100); // Remove flash after 1 second
       }
     } else if (!dailyPointsExceeded) {
