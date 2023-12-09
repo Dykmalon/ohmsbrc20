@@ -689,7 +689,7 @@ body {
 
 @keyframes pulse {
   from {
-      box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(0, 247, 255);
+      box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(255, 255, 255);
   }
   to {
       box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, 0), 0px 0px 0px 18px rgba(255, 128, 64, 0);
@@ -697,7 +697,7 @@ body {
 }
 @-webkit-keyframes pulse {
   0% {
-      box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(0, 247, 255);
+      box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(255, 255, 255);
   }
   100% {
       box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, 0), 0px 0px 0px 18px rgba(255, 128, 64, 0);
@@ -705,7 +705,7 @@ body {
 }
 @-moz-keyframes pulse {
   from {
-      box-shadow: 0px 0px 0px -3px rgba(74, 184, 0, 0), 0px 0px 0px 0px rgb(0, 247, 255);
+      box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(255, 255, 255);
   }
   to {
       box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, 0), 0px 0px 0px 18px rgba(255, 128, 64, 0);
@@ -713,7 +713,7 @@ body {
 }
 @-o-keyframes pulse {
   from {
-      box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(0, 247, 255);
+      box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(255, 255, 255);
   }
   to {
       box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, 0), 0px 0px 0px 18px rgba(255, 128, 64, 0);
@@ -721,7 +721,7 @@ body {
 }
 
 /* .pulsate:hover {
-  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(0, 247, 255);
+  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(255, 255, 255);
   -webkit-animation: pulse 1.5s ease-out 1s infinite forwards;
   -moz-animation: pulse 1.5s ease-out 1s infinite forwards;
   -o-animation: pulse 1.5s ease-out 1s infinite forwards;
@@ -729,14 +729,14 @@ body {
 } */
 
 .pulsate:focus {
-  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(0, 247, 255);
+  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(255, 255, 255);
   -webkit-animation: pulse 0.1s ease-out 0.1s infinite forwards;
   -moz-animation: pulse 0.1s ease-out 0.1s infinite forwards;
   -o-animation: pulse 0.1s ease-out 0.1s infinite forwards;
   animation: pulse 0.1s ease-out 0.1s infinite forwards;
 }
 .pulsate:active {
-  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(0, 247, 255);
+  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 0), 0px 0px 0px 0px rgb(255, 255, 255);
   -webkit-animation: pulse 0.1s ease-out 0.1s infinite forwards;
   -moz-animation: pulse 0.1s ease-out 0.1s infinite forwards;
   -o-animation: pulse 0.1s ease-out 0.1s infinite forwards;
@@ -746,6 +746,27 @@ body {
 
 
 /*end*/
+
+@keyframes like-animation {
+	0% {
+		transform: scale(1);
+		/* background: whitesmoke; */
+	}
+	50% {
+		transform: scale(1.3) translateY(-20px) rotate(-20deg);
+	}
+	70% {
+		transform: scale(1) translateY(10px) rotate(20deg);
+	}
+	100% {
+		transform: rotate(0);
+	}
+}
+
+#like.clicked {
+	animation: like-animation 0.8s;
+}
+
 
 
 
