@@ -7,7 +7,7 @@ import Coin from "./Coin";
 
 const Game = ({ onRedeem, userId }) => {
   const [points, setPoints] = useState(0);
-  const maxDailyPoints = 20;
+  const maxDailyPoints = 10000;
   const pointsPerPress = 0.25;
   const [dailyPointsExceeded, setDailyPointsExceeded] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
